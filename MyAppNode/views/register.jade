@@ -1,0 +1,44 @@
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    title Find what you like, Pin what you find
+    link(rel='stylesheet', type='text/css', href='template_login.css')
+  body
+    .cleaner.h30
+    #templatelogin_top_wrapper
+      #templatelogin_top
+        #templatelogin_menu.menu
+          ul
+            li
+              a(href='front.html') Find what you like, pin what you find
+            li
+              a(href='login.html') Login
+            li
+              a.selected(href='register.html') Register
+    #templatelogin_main_top
+    #templatelogin_slider_wrapper
+      section#content
+        form(method='post' action='/FirstVisit')
+          h1 Start your journey
+          div
+            input#login(name='name', type='text', placeholder='Choose your Login ID', required='')
+          div
+            input#password(name='password', type='password', placeholder='Choose your Password', required='')
+          div
+            input#givenname(name='givenname', type='other', placeholder='First Name', required='')
+          div
+            input#surname(name='surname', type='other', placeholder='Last Name', required='')
+          div
+            input#affiliation(name='affiliation', type='other', placeholder='Affiliation', required='')
+          div
+            input#birthday(name='birthday', type='other', placeholder='Birthday (yyyy-mm-dd)', required='')
+          div
+            input#interests(name='interest1', type='other', placeholder='Interest', required='')
+          div
+            input#interests(name='interest2', type='other', placeholder='Interest', required='')
+          div
+            input#interests(name='interest', type='other', placeholder='Interest', required='')
+          div
+            input(type='submit', value='Register')
+            a Already have an account?
+            a(href='login.html') Login

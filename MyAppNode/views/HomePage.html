@@ -1,0 +1,121 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Find what you like, Pin what you find</title>
+	<link rel="stylesheet" type="text/css" href="css/template_home.css" />
+	
+	<!--<script src="js/jquery.kwicks-1.5.1.pack.js" type="text/javascript"></script> -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bing.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="waterfall/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="waterfall/css/waterfall.css" />
+	
+</head>
+
+<body>
+	<div id="templatehome_top_wrapper">
+	    <div id="templatehome_top">
+	        <div id="templatehome_menu" class="menu">
+	            <ul>
+	                <li><a href="HomePage.html" class="selected">Find what you like, pin what you find</a></li>
+	                <li><a href="Board.html">Board</a></li>
+	                <li><a>Friends</a></li> 
+	                <li><a href="front.html">LogOut</a></li>              
+	            </ul>
+	        </div>
+	    </div>
+	</div>
+
+	<div id="templatehome_main_top"></div>
+	<div id="templatehome_main_wrapper">
+		<div class="col left">
+			<div class="h20"></div>
+			<h3>(Username)</h3>
+			<div>Edit Profile</div>
+
+			<div class="h20"></div>
+			<h5>Favorites</h5>
+			<div class="h10"></div>
+			<div>Message</div>
+			<div class="h10"></div>
+			<div>Board</div>
+			<div class="h10"></div>
+			<div>Friends</div>
+			<div class="h10"></div>
+			<div>Find Photos</div>
+			<div class="h10"></div>
+			<div>Find Friends</div>
+
+			<div class="h20"></div>
+			<h5>Recently Visited</h5>
+
+			<div class="h20"></div>
+			<h5>Recently Pinned</h5>
+			
+			<div class="h20"></div>
+			<h5>Key word:<h5>
+			<form action='Search' method='get'>
+			<input type="text" id="queryTxt" size="15" name='keyword'/>
+			<div class="h10"></div>
+			<input type="submit" id="queryBtn" value='Search'/>
+			</form>
+
+		</div>
+
+		<div id="templatehome_middle_wrapper">
+			<div id="waterfall_container">
+		    <script type="text/x-handlebars-template" id="waterfall-tpl">
+			{{#result}}
+			    <div class="item">
+			        <img src="{{image}}" width="{{width}}" height="{{height}}" />
+			    </div>
+			{{/result}}
+			</script>
+			<script src="waterfall/js/libs/jquery/jquery.js"></script>
+			<script src="waterfall/js/libs/handlebars/handlebars.js"></script>
+			<script src="waterfall/js/waterfall.min.js"></script>
+			<script>
+			$('#waterfall_container').waterfall({
+		    itemCls: 'item',
+		    colWidth: 222,  
+		    gutterWidth: 10,
+		    gutterHeight: 10,
+		    checkImagesLoaded: false,
+		    path: function(page) {
+		        return 'waterfall/data/data1.json?page=' + page;
+		    }
+			});
+			</script>
+			<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-1245097-16']);
+			_gaq.push(['_trackPageview']);
+			_gaq.push(['_trackPageLoadTime']);
+			(function() {
+			    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			    ga.src = 'https://ssl.google-analytics.com/ga.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+			</script>
+			</div>
+		</div>
+		
+		
+		<div id="templatehome_right_wrapper">
+			<div id="recommendation_container">
+			<div class="h20"></div>
+			<h3 id="right_txt">Recommendations</h3>
+			<div class="h20"></div>
+			<div class="col_right"><img id="search_1" src="images/slider/Athens_2004.jpg"/></div>
+			<div class="col_right"><img id="search_2" src="images/slider/Beijing_2008.jpg"/></div>
+			<div class="col_right"><img id="search_3" src="images/slider/London_2012.jpg"/></div>
+			<div class="col_right"><img id="search_4" src="images/slider/Sydney_2000.jpg"/></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

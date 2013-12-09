@@ -1,0 +1,108 @@
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    title Find what you like, Pin what you find
+    link(rel='stylesheet', type='text/css', href='template_home.css')
+    link(rel='stylesheet', type='text/css', href='template_login.css')
+    link(rel='stylesheet', type='text/css', href='avgrund.css')
+    link(rel='stylesheet', type='text/css', href='waterfall.css')
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js')
+    script(type='text/javascript', src='jquery.relocator.1.0.0.js')
+    script.
+      $(document).ready(function(){
+      $('#relocator').relocate({
+      title    : true,
+      highlight  : true,
+      direction  : "bottom",
+      speed    : 250,
+      });
+      });
+  body
+    .container
+      #templatehome_top_wrapper
+        #templatehome_top
+          #templatehome_menu.menu
+            ul
+              li
+                a(href='HomePage.html') Find what you like, pin what you find
+              li
+                a.selected(href='Board.html') Board
+              li
+                a Friends
+              li
+                a(href='Login.html') LogOut
+      #templatehome_main_top
+      #templatehome_main_wrapper
+        .col.left
+          .h20
+          h3 (Username)
+          .h20
+          h5 Favorites
+          .h10
+          .colmenu
+            ul
+              li
+                a(href='Profiles.html') Show Profile
+                li
+                  .h10
+                  li
+                    a(href='Board.html') Board
+                  .h10
+                  li
+                    a(href='Friends.html') Friends
+          .h50
+          .h50
+          h5 Hot Pictures
+        #templatehome_middle_wrapper
+          #waterfall_container(style='height: 100%;')
+            .h20
+            h3(style='float: left; margin-left: 40px;') My Board
+            button#show.createButton(type='button', href='#', style='float: right; margin-right: 20px;')  Create a new board
+            script(src='js/jquery.avgrund.js')
+            script.
+              $(function() {
+              $('#show').avgrund({
+              height: 300,
+              holderClass: 'custom',
+              showClose: true,
+              showCloseText: 'close',
+              onBlurContainer: '.container',
+              template:
+              '<div class="h20"></div>'+
+              '<section id="content" style="width: 260px;">'+
+              '<form action="">'+
+              '<h1>Create New Board</h1>'+
+              '<div>'+
+              '<input type="other" placeholder="*BoardName" required="" id="boradName" />'+
+              '</div>'+
+              '<div>'+
+              '<input type="other" placeholder="BoardType" id="boradType" />'+
+              '</div>'+
+              '<div>'+
+              '<input type="submit" value="Create" />'+
+              '</div>'+
+              '</form>'+
+              '</section>'
+              });
+              });
+            .h50
+            #relocator.relocator
+              ul
+                - for (var inx = 0; inx < results.length; inx++)
+                  li
+                    a(href='')
+                      img(src=results[inx].URL, data-title=results[inx].BOARD, data-desc=results[inx].BOARD)
+          
+        #templatehome_right_wrapper
+          #recommendation_container
+            .h20
+            h3 Recommendations
+            // <div class="h20"></div>
+            .col_right
+              img(src='images/slider/Athens_2004.jpg')
+            .col_right
+              img(src='images/slider/Beijing_2008.jpg')
+            .col_right
+              img(src='images/slider/London_2012.jpg')
+            .col_right
+              img(src='images/slider/Sydney_2000.jpg')

@@ -1,0 +1,102 @@
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    title Find what you like, Pin what you find
+    link(rel='stylesheet', type='text/css', href='template_home.css')
+    script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js')
+    script(type='text/javascript', src='bing.js')
+    script(type='text/javascript', src='util.js')
+    
+    link(rel='stylesheet', type='text/css', href='reset.css')
+    link(rel='stylesheet', type='text/css', href='waterfall.css')
+  body
+    #templatehome_top_wrapper
+      #templatehome_top
+        #templatehome_menu.menu
+          ul
+            li
+              a.selected(href='HomePage.html') Find what you like, pin what you find
+            li
+              a(href='Board.html?username=#{username}') Board
+            li
+              a Friends
+            li
+              a(href='front.html') LogOut
+    #templatehome_main_top
+    #templatehome_main_wrapper
+      .col.left
+        .h20
+        h3 #{username}
+        div Edit Profile
+        .h20
+        h5 Favorites
+        .h10
+        div Message
+        .h10
+        div Board
+        .h10
+        div Friends
+        .h10
+        div Find Photos
+        .h10
+        div Find Friends
+        .h20
+        h5 Recently Visited
+        .h20
+        h5 Recently Pinned
+        .h20
+        h5
+          | Key word:
+          h5
+             form(action='Search.html', method='get')
+                input#queryTxt(type='text', size='15', name='keyword')
+                .h10
+                input#queryBtn(type='submit', value='Search')
+                input#userName(type='hidden', name='username', value='#{username}')
+
+      #templatehome_middle_wrapper
+        #waterfall_container
+          script#waterfall-tpl(type='text/x-handlebars-template').
+            {{#result}}
+            <div class="item">
+            <img src="{{image}}" width="{{width}}" height="{{height}}" />
+            </div>
+            {{/result}}
+          script(src='jquery.js')
+          script(src='handlebars.js')
+          script(src='waterfall.min.js')
+          script.
+            $('#waterfall_container').waterfall({
+            itemCls: 'item',
+            colWidth: 222,
+            gutterWidth: 10,
+            gutterHeight: 10,
+            checkImagesLoaded: false,
+            path: function(page) {
+            return 'data1.json?page=' + page;
+            }
+            });
+          script(type='text/javascript').
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-1245097-16']);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_trackPageLoadTime']);
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = 'https://ssl.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+  
+      #templatehome_right_wrapper
+        #recommendation_container
+          .h20
+          h3#right_txt(align='center') Recommendations
+          .h20
+          .col_right
+            img#search_1(src='slider/Athens_2004.jpg')
+          .col_right
+            img#search_2(src='slider/Beijing_2008.jpg')
+          .col_right
+            img#search_3(src='slider/London_2012.jpg')
+          .col_right
+            img#search_4(src='slider/Sydney_2000.jpg')
